@@ -14,7 +14,7 @@ import {Platform, StyleSheet, Text, View} from 'react-native';
    android:'Android'
  });
 
-// display differ things for different platforms ------------------------------------------
+// display different things for different platforms ------------------------------------------
 
 export default class App extends Component {
   render() {
