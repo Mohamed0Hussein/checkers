@@ -15,7 +15,7 @@ export default class App extends Component {
 
         <View style={{flex: 4}} >
         
-            <Board knightPosition={[0,0]} />
+            <Board />
 
 
         </View>

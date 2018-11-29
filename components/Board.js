@@ -1,29 +1,36 @@
 import React from 'react';
 import Square from './Square';
 import Red from './Red';
+import White from './White';
 import {moveKnight} from './Game'
 import {View,TouchableWithoutFeedback,Text} from 'react-native';
-function renderSquare(i, [knightX, knightY]) {
+function renderSquare(i) {
     const x = i % 8;
     const y = Math.floor(i / 8);
-    const isKnightHere = (x === knightX && y === knightY)
     const black = (x + y) % 2 === 1;
-    const piece = isKnightHere ? <Red /> : <Text style={{color : 'blue'}}>{i}</Text>;
+    const piece =  x<=2 && black ? <White /> : null;
+    const piece2 = x>=5 && black ? <Red /> : null;
   
     return (
+        <TouchableWithoutFeedback onPress={() => handleSquareClick(x, y)}>
+
       <View 
       key={i} style={{ width: '12.5%', height: '12.5%' }}>
         <Square black={black}>
-          {piece}
+          {piece||piece2}
         </Square>
       </View>
+      </TouchableWithoutFeedback>
     );
 }
-export default function Board({knightPosition}) {
+function handleSquareClick(toX, toY){
+moveKnight(toX,toY);
+}
+export default function Board() {
     
   const squares = [];
   for (let i = 0; i < 64; i++) {
-    squares.push(renderSquare(i, knightPosition));
+    squares.push(renderSquare(i));
   }
 
   return (
