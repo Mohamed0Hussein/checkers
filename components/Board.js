@@ -11,19 +11,13 @@ function renderSquare(i, [knightX, knightY]) {
     const piece = isKnightHere ? <Red /> : <Text style={{color : 'blue'}}>{i}</Text>;
   
     return (
-        <TouchableWithoutFeedback onPress={() => handleSquareClick(x, y)}>
-
       <View 
       key={i} style={{ width: '12.5%', height: '12.5%' }}>
         <Square black={black}>
           {piece}
         </Square>
       </View>
-      </TouchableWithoutFeedback>
     );
-}
-function handleSquareClick(toX, toY){
-moveKnight(toX,toY);
 }
 export default function Board({knightPosition}) {
     
