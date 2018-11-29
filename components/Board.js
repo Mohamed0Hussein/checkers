@@ -2,20 +2,19 @@ import React from 'react';
 import Square from './Square';
 import Red from './Red';
 import White from './White';
-import {moveKnight} from './Game'
 import {View,TouchableWithoutFeedback,Text} from 'react-native';
-function renderSquare(i) {
-    const x = i % 8;
-    const y = Math.floor(i / 8);
-    const black = (x + y) % 2 === 1;
-    const piece =  x<=2 && black ? <White /> : null;
-    const piece2 = x>=5 && black ? <Red /> : null;
+
+function renderSquare(i,j) {
+
+    const black = (i + j) % 2 === 1;
+    const piece =  j<=2 && black ? <White /> : null;
+    const piece2 = j>=5 && black ? <Red /> : null;
   
     return (
-        <TouchableWithoutFeedback onPress={() => handleSquareClick(x, y)}>
+        <TouchableWithoutFeedback onPress={() => handleSquareClick(i, j)} key={[i,j]}>
 
       <View 
-      key={i} style={{ width: '12.5%', height: '12.5%' }}>
+       style={{ width: '12.5%', height: '12.5%' }}>
         <Square black={black}>
           {piece||piece2}
         </Square>
@@ -24,13 +23,14 @@ function renderSquare(i) {
     );
 }
 function handleSquareClick(toX, toY){
-moveKnight(toX,toY);
+    // when square is pressed -----------------------------
 }
 export default function Board() {
     
-  const squares = [];
-  for (let i = 0; i < 64; i++) {
-    squares.push(renderSquare(i));
+  var squares = [[]];
+  for (let i = 0; i < 8; i++)
+  for (let j = 0; j < 8; j++) {
+    squares.push(renderSquare(i,j));
   }
 
   return (

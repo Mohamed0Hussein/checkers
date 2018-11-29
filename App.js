@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Image, StatusBar, View,Text} from 'react-native';
 import Board from './components/Board';
-import {observe} from './components/Game';
 export default class App extends Component {
   
   render() {
@@ -13,7 +12,7 @@ export default class App extends Component {
 
 
 
-        <View style={{flex: 4}} >
+        <View style={{flex: 3}} >
         
             <Board />
 
