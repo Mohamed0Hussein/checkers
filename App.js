@@ -24,7 +24,6 @@ export default class App extends Component {
 
         <View style={{flex: 1 ,backgroundColor : 'black'}}>
         
-          <Text>Go Even Go!</Text>
         
         </View>
       </View>
