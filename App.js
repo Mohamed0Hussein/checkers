@@ -1,35 +1,37 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React, {Component} from 'react';
-import {Image, StatusBar, View,} from 'react-native';
-
-//  const instructions = Platform.select({
-//    ios: 'IOS',
-//    android:'Android'
-//  });
-
-// display different things for different platforms ------------------------------------------
-
+import {Image, StatusBar, View,Text} from 'react-native';
+import Board from './components/Board';
+import {observe} from './components/Game';
 export default class App extends Component {
+  
   render() {
     return (
       <View style={{flex:1}}>
-        <Image
-         style={{ height: null, width: null,flex:1}}
-          source={require('./src/board.jpeg')}
-          resizeMode={'stretch'}
-        />
-        <StatusBar hidden={true} />
+        <View style={{flex: 1,backgroundColor :'black'}}>
         
         </View>
+
+
+
+        <View style={{flex: 3}} >
+        
+            <Board knightPosition={[0,0]} />
+
+
+        </View>
+
+
+
+        <View style={{flex: 1 ,backgroundColor : 'black'}}>
+        
+          <Text>Go Even Go!</Text>
+        
+        </View>
+      </View>
+
+
+      
     );
   }
+
 }
-
-
