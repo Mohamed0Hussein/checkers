@@ -12,7 +12,7 @@ export default class App extends Component {
 
 
 
-        <View style={{flex: 3}} >
+        <View style={{flex: 4}} >
         
             <Board />
 
